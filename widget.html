@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Template</title>
+
+    <!------------------------------------->
+    <!------------------------------------->
+    <!--Add your Cookie Banner Embed code-->
+    <!------------------------------------->
+    <!------------------------------------->
+
+    <!------------------------------------->
+    <!------------------------------------->
+    <!------------------------------------->
+    <!------------------------------------->
+  </head>
+
+  <!--<body style="background-color: lightgrey"> -->
+  <body style="background-image: url('background.png')">
+    <div>
+      <br /><br /><br /><br /><br />
+      <form
+        style="
+          margin: 0 auto;
+          width: 50%;
+          background-color: white;
+          padding: 15px;
+          border: 2px solid #007db3;
+          min-width: 550px;
+          border-radius: 5px;
+        "
+      >
+        <h3 style="text-align: center; color: #007db3; padding-bottom: 20px">
+          Template
+        </h3>
+        <hr />
+        <div class="form-group">
+          <label for="enterForename">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="forename"
+            name="forename"
+            placeholder="First name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="enterSurname">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="surname"
+            name="surname"
+            placeholder="Last name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="enterEmail">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email1"
+            placeholder="Email address"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="enterEmail">Mobile Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mobile"
+            name="mobile"
+            placeholder="Mobile Number"
+          />
+        </div>
+        <!-- Start My Code -->
+        <div class="form-group">
+          <label for="enterEmail">Customer Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="URN3"
+            name="Customer Id"
+            placeholder="Customer Id"
+          />
+        </div>
+        <!-- End  My Code -->
+        <br /><br />
+
+        <!----------------------------------->
+        <!----------------------------------->
+        <!--Add your div here.--------------->
+        <!----------------------------------->
+        <!----------------------------------->
+        <div id="PrefWidget"></div>
+        <!----------------------------------->
+        <!----------------------------------->
+        <!----------------------------------->
+        <!----------------------------------->
+
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!----------------------------------->
+    <!----------------------------------->
+    <!--Add your Get Widget Code -------->
+    <!----------------------------------->
+    <!----------------------------------->
+    <script src="https://wscript-cdn-irl-uat.cassiecloud.com/widget.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function (event) {
+        GetWidget(
+          "14",
+          "0463DE9A-CF3D-48B6-B743-C91E3913FAD6",
+          "0463DE9A-CF3D-48B6-B743-C91E3913FAD6",
+          "PrefWidget",
+          "00",
+          ""
+        );
+        var CookieConsentID = checkCookie("CookieConsentID");
+      });
+    </script>
+    <!----------------------------------->
+    <!----------------------------------->
+    <!----------------------------------->
+    <!----------------------------------->
+
+    <!--START of SaveWidget code here---->
+    <script type="text/javascript">
+      var form = document.forms[0]; //Change this to correspond to your form. The form's submit button cannot be called "submit"
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); //Intercept form submit and run SaveWidget()
+        SaveWidget("14", "0463DE9A-CF3D-48B6-B743-C91E3913FAD6", "PrefWidget");
+      });
+
+      function SaveWidget(FormID, AccessKey, DivID) {
+        var PostURL =
+          "https://wscript-irl-uat.cassiecloud.com/widgetsapi/submit";
+        var ObjectArray = []; // Define an empty Object Array
+        var RecordObject = {}; // Define an empty Record Object for holding data
+        /*
+         * Forename, Surname and Email1 are required fields within the RecordObject,
+         * the remaining fields are optional and need not be defined at all unless
+         * you plan to use them.
+         */
+        //*** Scrape form fields for matching ***//
+        RecordObject.DivID = DivID; // This is the name of the container that holds the Cassie widget.
+        RecordObject.LanguageCode = "";
+        if (document.getElementsByName("title")[0] != undefined) {
+          RecordObject.Title = document.getElementsByName("title")[0].value;
+        } else {
+          RecordObject.Title = "";
+        }
+        if (document.getElementsByName("forename")[0] != undefined) {
+          RecordObject.Forename =
+            document.getElementsByName("forename")[0].value;
+        } else {
+          RecordObject.Forename = "";
+        }
+        if (document.getElementsByName("middlename")[0] != undefined) {
+          RecordObject.MiddleName =
+            document.getElementsByName("middlename")[0].value;
+        } else {
+          RecordObject.MiddleName = "";
+        }
+        if (document.getElementsByName("surname")[0] != undefined) {
+          RecordObject.Surname = document.getElementsByName("surname")[0].value;
+        } else {
+          RecordObject.Surname = "";
+        }
+        if (document.getElementsByName("email1")[0] != undefined) {
+          RecordObject.Email1 = document.getElementsByName("email1")[0].value;
+          RecordObject.Email1 = encodeURIComponent(RecordObject.Email1);
+        } else {
+          RecordObject.Email1 = "";
+        }
+        if (document.getElementsByName("email2")[0] != undefined) {
+          RecordObject.Email2 = document.getElementsByName("email2")[0].value;
+        } else {
+          RecordObject.Email2 = "";
+        }
+        if (document.getElementsByName("telephone1")[0] != undefined) {
+          RecordObject.Telephone1 =
+            document.getElementsByName("telephone1")[0].value;
+        } else {
+          RecordObject.Telephone1 = "";
+        }
+        if (document.getElementsByName("telephone2")[0] != undefined) {
+          RecordObject.Telephone2 =
+            document.getElementsByName("telephone2")[0].value;
+        } else {
+          RecordObject.Telephone2 = "";
+        }
+        if (document.getElementsByName("mobile")[0] != undefined) {
+          RecordObject.Mobile = document.getElementsByName("mobile")[0].value;
+        } else {
+          RecordObject.Mobile = "";
+        }
+        if (document.getElementsByName("address1")[0] != undefined) {
+          RecordObject.Address1 =
+            document.getElementsByName("address1")[0].value;
+        } else {
+          RecordObject.Address1 = "";
+        }
+        if (document.getElementsByName("address2")[0] != undefined) {
+          RecordObject.Address2 =
+            document.getElementsByName("address2")[0].value;
+        } else {
+          RecordObject.Address2 = "";
+        }
+        if (document.getElementsByName("address3")[0] != undefined) {
+          RecordObject.Address3 =
+            document.getElementsByName("address3")[0].value;
+        } else {
+          RecordObject.Address3 = "";
+        }
+        if (document.getElementsByName("address4")[0] != undefined) {
+          RecordObject.Address4 =
+            document.getElementsByName("address4")[0].value;
+        } else {
+          RecordObject.Address4 = "";
+        }
+        if (document.getElementsByName("address5")[0] != undefined) {
+          RecordObject.Address5 =
+            document.getElementsByName("address5")[0].value;
+        } else {
+          RecordObject.Address5 = "";
+        }
+        if (document.getElementsByName("town")[0] != undefined) {
+          RecordObject.Town = document.getElementsByName("town")[0].value;
+        } else {
+          RecordObject.Town = "";
+        }
+        if (document.getElementsByName("county")[0] != undefined) {
+          RecordObject.County = document.getElementsByName("county")[0].value;
+        } else {
+          RecordObject.County = "";
+        }
+        if (document.getElementsByName("postcode")[0] != undefined) {
+          RecordObject.Postcode =
+            document.getElementsByName("postcode")[0].value;
+        } else {
+          RecordObject.Postcode = "";
+        }
+        if (document.getElementsByName("country")[0] != undefined) {
+          RecordObject.Country = document.getElementsByName("country")[0].value;
+        } else {
+          RecordObject.Country = "";
+        }
+        if (document.getElementsByName("campaigncode")[0] != undefined) {
+          RecordObject.CampaignCode =
+            document.getElementsByName("campaigncode")[0].value;
+        } else {
+          RecordObject.CampaignCode = "";
+        }
+        if (document.getElementsByName("sourcecode")[0] != undefined) {
+          RecordObject.SourceCode =
+            document.getElementsByName("sourcecode")[0].value;
+        } else {
+          RecordObject.SourceCode = "";
+        }
+        if (document.getElementsByName("responsechannel")[0] != undefined) {
+          RecordObject.ResponseChannel =
+            document.getElementsByName("responsechannel")[0].value;
+        } else {
+          RecordObject.ResponseChannel = "";
+        }
+
+        // Start My Code
+        if (document.getElementsByName("Customer Id")[0] != undefined) {
+          RecordObject.URN3;
+          document.getElementsByName("Customer Id")[0].value;
+        } else {
+          RecordObject.URN3 = "";
+        }
+        // End of My Code
+
+        //If we have a cookie preference already saved for this record, then add it to the record object for processing
+        var visitGuid = document.cookie.replace(
+          /(?:(?:^|.*;\s*)SyrenisCookieConsentID_.+?\s*\=\s*([^;]*).*$)|^.*$/,
+          "$1"
+        );
+        if (visitGuid != "") {
+          RecordObject.VisitGUID = visitGuid;
+        }
+        //*** Process preferences ***//
+        // Add preferences to RecordObject, and RecordObject to ObjectArray
+        RecordObject.Preferences = GetPreferencesArray();
+        ObjectArray.push(RecordObject);
+        RecordObject.FormID = FormID;
+        RecordObject.LicenseID = AccessKey;
+        //Log values
+        //console.log("PostURL=" + PostURL);
+        //console.log("RecordObject = " + JSON.stringify(RecordObject));
+        // Post the data to the Cassie web service
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", PostURL, true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState === 4) {
+            if (xmlhttp.status === 200) {
+              //Submit form as usual
+              form.submit();
+            }
+          }
+        };
+        var JSONRecordObject = JSON.stringify(RecordObject);
+        xmlhttp.send(JSONRecordObject);
+      }
+    </script>
+    <!--End of SaveWidget code-->
+  </body>
+</html>
